@@ -1,6 +1,7 @@
 const addTodosForm = document.querySelector('.add');
 const list = document.querySelector('.todos');
-const searchForm = document.querySelector('.search input');
+const search = document.querySelector('.search input');
+const searchForm = document.querySelector('.search');
 
 const todoHtmlTemplate = (todo) => {
     const html = `
@@ -43,7 +44,9 @@ list.addEventListener('click', e => {
 
 //search todos
 
-searchForm.addEventListener('keyup', e => {
-    const searchTodo = searchForm.value.trim().toLowerCase();
+search.addEventListener('keyup', e => {
+    const searchTodo = search.value.trim().toLowerCase();
     filteredTodos(searchTodo);
 });
+
+searchForm.addEventListener('submit', e => e.preventDefault());
